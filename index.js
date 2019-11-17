@@ -30,5 +30,6 @@ if (task === 'push') {
     );
 
     child_process.execSync(`docker tag ${docker_tag} ${project}:${docker_branch}.latest`);
-    child_process.execSync(`docker push ${docker_tag} ${project}:${docker_branch}.latest`);
+    child_process.execSync(`docker push ${docker_tag}`);
+    child_process.execSync(`docker push ${project}:${docker_branch}.latest`);
 }
