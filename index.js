@@ -29,6 +29,6 @@ if (task === 'push') {
         {input: password}
     );
 
-    child_process.execSync(`docker tag ${docker_tag} ${project}:${git_branch}.latest`);
-    child_process.execSync(`docker push ${docker_tag} ${project}:${git_branch}.latest`);
+    child_process.execSync(`docker tag ${docker_tag} ${project}:${docker_branch}.latest`);
+    child_process.execSync(`docker push ${docker_tag} ${project}:${docker_branch}.latest`);
 }
