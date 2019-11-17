@@ -15,6 +15,8 @@ core.setOutput('docker_branch', docker_branch);
 core.setOutput('docker_version', docker_version);
 core.setOutput('docker_tag', docker_tag);
 
+console.log(`Docker: ${task} ${docker_tag}`);
+
 if (task === 'push') {
     const registry = core.getInput('registry', { required: true });
     const username = core.getInput('username', { required: true });
