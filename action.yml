@@ -1,0 +1,11 @@
+name: docker tag name
+description: Calculate parameters for tagging a docker image
+outputs:
+  docker_branch_name:
+    description: shortened branch name used for tagging, e.g. just "master"
+  docker_version:
+    description: version string for tags, e.g. "master.e722b2"
+runs:
+  using: node12
+  main: index.js
+  
