@@ -17,20 +17,23 @@ core.setOutput('docker_tag', docker_tag);
 
 console.log(`Docker: ${task} ${docker_tag}`);
 
+const execSync = (command, options = {}) => {
+    console.log(`> ${command}`);
+    child_process.execSync(command, options);
+};
+
 if (task === 'push') {
     const registry = core.getInput('registry', { required: true });
     const username = core.getInput('username', { required: true });
     const password = core.getInput('password', { required: true });
 
-    console.log(`pushing ${docker_tag} to ${registry}.`);
-
-    child_process.execSync(
+    execSync(
         `docker login -u ${username} --password-stdin ${registry}`,
         {input: password}
     );
 
-    child_process.execSync(`docker tag ${docker_tag} ${registry}/${project}:${docker_branch}.latest`);
-    child_process.execSync(`docker tag ${docker_tag} ${registry}/${docker_tag}`);
-    child_process.execSync(`docker push ${registry}/${docker_tag}`);
-    child_process.execSync(`docker push ${registry}/${project}:${docker_branch}.latest`);
+    execSync(`docker tag ${docker_tag} ${registry}/${project}:${docker_branch}.latest`);
+    execSync(`docker tag ${docker_tag} ${registry}/${docker_tag}`);
+    execSync(`docker push ${registry}/${docker_tag}`);
+    execSync(`docker push ${registry}/${project}:${docker_branch}.latest`);
 }
