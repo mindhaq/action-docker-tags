@@ -26,5 +26,5 @@ outputs:
   docker_tag:
     description: full tag, e.g. "repo/app:master.e722b2"
 runs:
-  using: node12
+  using: node20
   main: index.js
