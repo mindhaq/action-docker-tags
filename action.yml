@@ -6,9 +6,10 @@ inputs:
     description: name of project and docker repo
     required: true
   task:
-    description: one of:
-      "prepare" only compute the tag information 
-      "push" push tags into docker repo
+    description: >
+      one of:
+        "prepare" only compute the tag information 
+        "push" push tags into docker repo
     default: prepare
     required: true  
   registry:
