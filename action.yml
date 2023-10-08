@@ -31,5 +31,5 @@ outputs:
     description: full tag, e.g. "repo/app:master.e722b2"
 
 runs:
-  using: node18
+  using: node20
   main: index.js
