@@ -30,7 +30,7 @@ Use the prepare task before building the docker image without pushing it yet.
 steps:
       - name: Get docker tag info
         id: dockertags
-        uses: mindhaq/action-docker-tags@v1.1.0
+        uses: mindhaq/action-docker-tags@v1
         with:
           project: restrealitaet/rr-forum-backend
           task: prepare
@@ -42,7 +42,7 @@ Use the push task to publish the docker image to your registry, in this case to 
 ```yaml
       - name: Push docker image to gitlab.com
         if: "(github.ref == 'refs/heads/develop') || (github.ref == 'refs/heads/master')"
-        uses: mindhaq/action-docker-tags@v1.1.0
+        uses: mindhaq/action-docker-tags@v1
         with:
           project: example/project
           task: push

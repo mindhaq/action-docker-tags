@@ -1,12 +1,15 @@
 name: docker tag name
 description: Calculate parameters for tagging a docker image
+author: Rüdiger Schulz <code@mindhaq.com>
 inputs:
   project:
     description: name of project and docker repo
     required: true
   task:
-    description: either "prepare" or "push"
-    default: "prepare"
+    description: one of:
+      "prepare" only compute the tag information 
+      "push" push tags into docker repo
+    default: prepare
     required: true  
   registry:
     description: host for registry. required only for push.
@@ -25,6 +28,7 @@ outputs:
     description: version string for tags, e.g. "master.e722b2"
   docker_tag:
     description: full tag, e.g. "repo/app:master.e722b2"
+
 runs:
-  using: node20
+  using: node18
   main: index.js
